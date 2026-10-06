@@ -1,19 +1,16 @@
-/* Íconos de ranas amenazadas (vista dorsal) para MapLibre. Color por categoría UICN. */
+/* Íconos de ranas amenazadas: silueta trepadora (diseño de FCV) en variantes de color por categoría UICN. */
 window.RABICON=(function(){
-  var COL={ANDI:'#e5351f',CR:'#7a0f3d',EN:'#e0701a',VU:'#d9ae1c',NT:'#7d8a80',LC:'#7d8a80'};
+  var D="M25.6 0.4L24.8 1.4L24.8 2.2L28.0 6.1L28.7 8.5L28.0 9.3L26.8 8.9L24.4 6.5L23.4 6.5L23.0 6.9L23.0 7.9L23.6 8.5L25.2 8.5L26.2 8.9L28.3 11.0L30.5 21.3L32.3 22.4L37.8 24.8L38.6 26.4L38.6 27.6L34.8 30.5L33.1 32.5L30.5 36.8L29.1 40.9L30.3 44.7L29.9 44.7L29.5 43.3L27.6 39.4L24.6 34.6L23.0 33.9L21.7 33.9L20.5 34.4L19.7 35.6L14.6 48.6L13.6 45.5L13.4 42.7L14.0 41.5L15.7 39.8L17.3 39.0L17.7 38.0L16.7 37.0L15.9 37.2L15.2 38.4L13.6 39.8L12.8 39.8L11.8 38.8L11.2 36.6L11.4 31.7L12.2 29.9L12.2 28.7L11.6 28.0L10.6 27.6L9.8 27.8L9.1 28.7L9.1 30.1L9.8 32.1L9.8 34.6L9.3 36.0L8.3 36.8L7.7 36.8L4.5 33.7L2.8 30.7L1.2 30.5L0.4 31.3L0.4 32.9L1.4 33.9L4.5 35.6L6.5 37.4L7.3 38.6L7.3 39.6L6.7 40.2L5.7 40.2L3.7 39.4L2.4 38.4L1.2 38.2L0.4 38.8L0.4 40.2L1.0 40.7L4.7 40.4L6.9 41.3L8.7 42.7L9.6 44.5L11.0 50.8L12.8 56.3L13.6 57.7L14.6 58.5L15.9 58.3L18.3 55.3L20.3 51.0L22.8 42.1L25.6 50.8L28.1 55.7L28.1 56.7L28.7 57.9L29.9 58.9L31.3 59.4L34.3 63.6L36.4 65.7L38.8 67.3L38.6 67.7L33.9 67.9L25.0 69.1L24.0 70.3L24.0 71.7L26.4 77.0L28.5 80.1L31.7 83.7L32.5 85.6L32.5 90.0L31.5 91.3L29.9 92.3L29.5 93.7L30.1 94.5L31.3 94.7L32.1 93.9L32.3 91.9L33.1 89.6L34.1 88.8L34.6 89.0L35.4 90.0L35.8 92.1L35.2 98.2L36.0 99.2L37.6 99.4L38.4 98.4L38.4 97.0L37.0 93.3L36.8 90.6L37.4 89.8L38.6 89.6L40.0 90.0L42.3 92.1L43.7 94.1L44.7 94.5L45.5 94.3L46.1 93.7L46.3 92.3L45.5 91.3L42.9 90.4L40.7 88.8L38.0 86.0L37.8 84.3L39.0 83.5L41.9 83.5L42.5 82.9L42.3 81.7L40.6 81.5L39.2 82.3L38.0 82.5L35.2 81.9L31.3 77.8L28.0 73.2L28.0 72.8L29.3 72.6L31.3 73.2L36.6 74.0L43.3 74.2L48.8 73.4L50.2 72.4L50.6 71.7L50.6 70.3L49.4 68.1L44.7 62.6L38.8 56.7L38.8 56.3L42.3 52.6L48.0 48.0L50.4 45.3L52.6 41.1L53.5 35.6L54.3 38.4L55.5 40.2L56.5 40.4L58.7 39.8L63.4 39.2L66.7 39.2L68.5 40.0L69.7 41.1L70.3 42.9L70.9 43.3L71.9 43.1L72.2 41.9L71.5 41.1L70.3 40.7L68.7 39.6L68.7 38.2L71.1 38.0L73.8 39.0L75.0 39.8L76.4 40.0L77.4 39.2L77.4 38.0L76.4 37.4L72.0 37.4L70.3 36.8L69.9 36.2L70.3 35.0L71.1 34.1L72.8 33.1L74.6 32.7L75.2 32.1L75.4 31.1L74.4 30.1L73.6 30.1L70.7 33.1L67.9 34.8L66.9 35.0L65.6 34.4L65.6 32.9L66.1 31.1L65.6 30.5L65.2 30.5L64.4 31.3L64.6 33.7L63.8 35.2L62.2 35.8L57.1 36.8L56.5 36.2L55.9 34.6L55.3 28.1L56.9 26.6L57.7 25.0L58.1 23.2L59.1 21.7L59.3 20.5L58.7 19.3L58.3 19.1L57.7 21.9L57.3 21.9L57.3 20.5L58.1 18.3L57.9 16.5L57.1 14.0L55.3 11.0L54.1 10.2L51.0 10.2L47.6 11.2L45.7 12.6L45.3 14.2L43.7 15.7L43.3 15.6L44.7 14.2L45.1 13.0L43.7 13.0L42.7 13.4L41.9 14.6L41.9 15.9L40.2 18.9L39.8 21.3L36.2 21.3L35.0 20.7L33.3 18.7L32.9 17.1L32.7 12.8L33.9 11.6L36.6 10.8L36.8 9.6L35.8 9.3L34.3 10.4L32.9 10.6L32.1 9.4L32.1 8.3L33.7 3.7L34.8 2.2L34.6 0.8L34.1 0.4L33.3 0.4L32.5 1.0L32.1 4.9L31.7 5.7L30.5 6.9L29.9 7.1L29.1 6.5L28.1 4.7L27.2 1.0L26.6 0.4Z";
+  var COL={ANDI:'#e5351f',CR:'#7a0f3d',EN:'#e0701a',VU:'#d9ae1c',NT:'#5f8f5a',LC:'#2e8b3a'};
   function svg(fill,leg,halo){
-    var h=halo?'<circle cx="32" cy="34" r="30" fill="none" stroke="#f2c14e" stroke-width="3"/>':'';
-    return '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">'+h+
-    '<g fill="'+leg+'" stroke="#fff" stroke-width="2.4" stroke-linejoin="round">'+
-    '<path d="M23 42 L8 53 L14 59 L29 49Z"/><path d="M41 42 L56 53 L50 59 L35 49Z"/>'+
-    '<path d="M24 27 L10 22 L8 29 L24 35Z"/><path d="M40 27 L54 22 L56 29 L40 35Z"/></g>'+
-    '<g fill="'+fill+'" stroke="#fff" stroke-width="2.4"><ellipse cx="32" cy="39" rx="11" ry="14"/><ellipse cx="32" cy="22" rx="10" ry="9"/></g>'+
-    '<circle cx="26" cy="16" r="3.6" fill="#fff"/><circle cx="38" cy="16" r="3.6" fill="#fff"/><circle cx="26" cy="16" r="1.6" fill="#111"/><circle cx="38" cy="16" r="1.6" fill="#111"/></svg>';
+    var h=halo?'<circle cx="39" cy="50" r="52" fill="rgba(242,193,78,.35)" stroke="#f2c14e" stroke-width="4"/>':'';
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="82" viewBox="-14 -6 106 112">'+h+
+    '<path d="'+D+'" fill="'+fill+'" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke"/></svg>';
   }
-  function img(s){return new Promise(function(ok,no){var i=new Image(64,64);i.onload=function(){ok(i)};i.onerror=no;i.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)})}
+  function img(s){return new Promise(function(ok,no){var i=new Image(64,82);i.onload=function(){ok(i)};i.onerror=no;i.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)})}
   async function registrar(map){
-    var def={'rana-andi':svg(COL.ANDI,'#5a3418',true),'rana-CR':svg(COL.CR,COL.CR),'rana-EN':svg(COL.EN,COL.EN),'rana-VU':svg(COL.VU,COL.VU),'rana-NT':svg(COL.NT,COL.NT)};
+    var def={'rana-andi':svg(COL.ANDI,0,true),'rana-CR':svg(COL.CR),'rana-EN':svg(COL.EN),'rana-VU':svg(COL.VU),'rana-NT':svg(COL.NT)};
     for(var k in def){if(!map.hasImage(k))map.addImage(k,await img(def[k]),{pixelRatio:2})}
   }
-  return {COL:COL,svg:svg,registrar:registrar,dataUri:function(c,leg,halo){return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg(c,leg||c,halo))}};
+  return {COL:COL,D:D,svg:svg,registrar:registrar,dataUri:function(c,leg,halo){return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg(c,leg||c,halo))}};
 })();
