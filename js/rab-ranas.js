@@ -73,8 +73,8 @@
     m.addLayer({ id: 'rr-pl', type: 'line', source: 'rr-p', paint: { 'line-color': '#fff', 'line-width': 1, 'line-dasharray': [3, 2], 'line-opacity': 0.8 } });
     m.addLayer({ id: 'rr-mk', type: 'fill', source: 'rr-m', paint: { 'fill-color': '#0d1712', 'fill-opacity': 0.55 } });
     m.addLayer({ id: 'rr-sl', type: 'line', source: 'rr-s', paint: { 'line-color': '#f2c14e', 'line-width': 3 } });
-    m.addLayer({ id: 'rr-oi', type: 'symbol', source: 'rr-o', layout: { 'icon-image': ['concat', 'rana-', ['get', 'u']], 'icon-size': 0.62, 'icon-allow-overlap': true } });
-    m.addLayer({ id: 'rr-ai', type: 'symbol', source: 'rr-a', layout: { 'icon-image': 'rana-andi', 'icon-size': 0.8, 'icon-allow-overlap': true } });
+    m.addLayer({ id: 'rr-oi', type: 'symbol', source: 'rr-o', layout: { 'icon-image': ['concat', 'rana-', ['get', 'u']], 'icon-size': ['interpolate', ['linear'], ['zoom'], 12, 0.7, 17, 1.25], 'icon-allow-overlap': true } });
+    m.addLayer({ id: 'rr-ai', type: 'symbol', source: 'rr-a', layout: { 'icon-image': 'rana-andi', 'icon-size': ['interpolate', ['linear'], ['zoom'], 12, 0.95, 17, 1.6], 'icon-allow-overlap': true } });
     ['rr-oi', 'rr-ai'].forEach((l) => { m.on('click', l, (e) => { const p = e.features[0].properties; e.originalEvent.__rr = 1; new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${esc(p.e)}</i></b><br>${p.c ? esc(p.c) + '<br>' : ''}UICN: ${p.u} · ${p.n} registro(s)<br>Zona: ${esc(p.z)}<br>Cobertura: ${esc(p.k)}<br>Predio: ${esc(p.p) || '—'}`).addTo(m); }); m.on('mouseenter', l, () => m.getCanvas().style.cursor = 'pointer'); m.on('mouseleave', l, () => m.getCanvas().style.cursor = ''); });
     mapa(); vis(); tabla();
   }
