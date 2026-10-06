@@ -77,6 +77,7 @@
     m.addLayer({ id: 'rr-ai', type: 'symbol', source: 'rr-a', layout: { 'icon-image': 'rana-andi', 'icon-size': ['interpolate', ['linear'], ['zoom'], 12, 0.95, 17, 1.6], 'icon-allow-overlap': true } });
     ['rr-oi', 'rr-ai'].forEach((l) => { m.on('click', l, (e) => { const p = e.features[0].properties; e.originalEvent.__rr = 1; new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${esc(p.e)}</i></b><br>${p.c ? esc(p.c) + '<br>' : ''}UICN: ${p.u} · ${p.n} registro(s)<br>Zona: ${esc(p.z)}<br>Cobertura: ${esc(p.k)}<br>Predio: ${esc(p.p) || '—'}`).addTo(m); }); m.on('mouseenter', l, () => m.getCanvas().style.cursor = 'pointer'); m.on('mouseleave', l, () => m.getCanvas().style.cursor = ''); });
     mapa(); vis(); tabla();
+    setInterval(() => { const L = m.getStyle().layers; if (L[L.length - 1].id !== 'rr-ai') ['rr-pl', 'rr-mk', 'rr-sl', 'rr-oi', 'rr-ai'].forEach((l) => m.getLayer(l) && m.moveLayer(l)); }, 1200);
   }
   $('#rrPredio').onchange = (e) => { sel = e.target.value; mapa(); tabla(); };
   $('#rrVer').onchange = (e) => { ver = e.target.checked; vis(); };
