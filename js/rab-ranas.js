@@ -1,3 +1,4 @@
+(function(){try{var b=(document.currentScript||{}).src||'',base=b.replace(/js\/rab-ranas\.js.*$/,'');var a=document.createElement('script');a.src=base+'ana-datos.js';a.onload=function(){var c=document.createElement('script');c.src=base+'js/rab-analisis.js';document.head.appendChild(c)};document.head.appendChild(a)}catch(e){}})();
 /* Ranas amenazadas como centro del visor: íconos por categoría UICN, corte por predio y cruces con zona y cobertura.
    Depende de RABDATA (portal-datos.js) y RABICON (iconos.js). No altera el resto del tablero. */
 (function () {
@@ -73,11 +74,10 @@
     m.addLayer({ id: 'rr-pl', type: 'line', source: 'rr-p', paint: { 'line-color': '#fff', 'line-width': 1, 'line-dasharray': [3, 2], 'line-opacity': 0.8 } });
     m.addLayer({ id: 'rr-mk', type: 'fill', source: 'rr-m', paint: { 'fill-color': '#0d1712', 'fill-opacity': 0.55 } });
     m.addLayer({ id: 'rr-sl', type: 'line', source: 'rr-s', paint: { 'line-color': '#f2c14e', 'line-width': 3 } });
-    m.addLayer({ id: 'rr-oi', type: 'symbol', source: 'rr-o', layout: { 'icon-image': ['concat', 'rana-', ['get', 'u']], 'icon-size': ['interpolate', ['linear'], ['zoom'], 12, 0.7, 17, 1.25], 'icon-allow-overlap': true } });
-    m.addLayer({ id: 'rr-ai', type: 'symbol', source: 'rr-a', layout: { 'icon-image': 'rana-andi', 'icon-size': ['interpolate', ['linear'], ['zoom'], 12, 0.95, 17, 1.6], 'icon-allow-overlap': true } });
+    m.addLayer({ id: 'rr-oi', type: 'symbol', source: 'rr-o', layout: { 'icon-image': ['concat', 'rana-', ['get', 'u']], 'icon-size': 0.62, 'icon-allow-overlap': true } });
+    m.addLayer({ id: 'rr-ai', type: 'symbol', source: 'rr-a', layout: { 'icon-image': 'rana-andi', 'icon-size': 0.8, 'icon-allow-overlap': true } });
     ['rr-oi', 'rr-ai'].forEach((l) => { m.on('click', l, (e) => { const p = e.features[0].properties; e.originalEvent.__rr = 1; new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${esc(p.e)}</i></b><br>${p.c ? esc(p.c) + '<br>' : ''}UICN: ${p.u} · ${p.n} registro(s)<br>Zona: ${esc(p.z)}<br>Cobertura: ${esc(p.k)}<br>Predio: ${esc(p.p) || '—'}`).addTo(m); }); m.on('mouseenter', l, () => m.getCanvas().style.cursor = 'pointer'); m.on('mouseleave', l, () => m.getCanvas().style.cursor = ''); });
     mapa(); vis(); tabla();
-    setInterval(() => { const L = m.getStyle().layers; if (L[L.length - 1].id !== 'rr-ai') ['rr-pl', 'rr-mk', 'rr-sl', 'rr-oi', 'rr-ai'].forEach((l) => m.getLayer(l) && m.moveLayer(l)); }, 1200);
   }
   $('#rrPredio').onchange = (e) => { sel = e.target.value; mapa(); tabla(); };
   $('#rrVer').onchange = (e) => { ver = e.target.checked; vis(); };
