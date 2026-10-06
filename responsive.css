@@ -1,0 +1,37 @@
+/* Ajustes responsivos del portal (editorial y paper-cut) */
+html,body{max-width:100%;overflow-x:clip}
+img,svg,video,canvas,iframe{max-width:100%}
+header.top .mb{display:none;font:inherit;letter-spacing:.1em;text-transform:uppercase;color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:999px;padding:8px 14px;cursor:pointer}
+header.top nav{display:flex;gap:20px}
+@media(max-width:1000px){
+ header.top{gap:12px;padding:10px 16px}
+ header.top .mb{display:inline-block}
+ header.top nav{display:none;position:fixed;left:0;right:0;top:56px;flex-direction:column;gap:0;background:#f1e6c8;color:#2b2316;box-shadow:0 12px 24px rgba(0,0,0,.35);max-height:calc(100vh - 56px);overflow:auto}
+ header.top.open nav{display:flex}
+ header.top nav a{padding:15px 20px;border-bottom:1px solid #cdbd96;font-size:14px}
+ header.top>a:not(.wm){font-size:11px}
+}
+@media(max-width:560px){
+ header.top>a:not(.wm){display:none}
+ header.top .sp{flex:1}
+ header.top.open nav::after{content:"";display:block;height:4px}
+}
+
+/* ---- contenido ---- */
+.cap>*,.dos>*,.big>*,.w,.sel{min-width:0}
+p,li,h1,h2,h3,td,th,figcaption{overflow-wrap:break-word}
+table{max-width:100%}
+@media(max-width:700px){
+ table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ th,td{font-size:13px;padding-left:8px;padding-right:8px}
+ .hero h1{font-size:clamp(2.3rem,12vw,4rem)}
+ .hero div{padding:0 20px 56px}
+ .big b{font-size:2.4rem}
+ h2{font-size:clamp(1.5rem,6.4vw,2.1rem)}
+ .full{margin-left:-22px;margin-right:-22px}
+}
+@media(max-width:480px){
+ .rn{display:none!important}
+ .big{grid-template-columns:1fr 1fr}
+ .cta .op{grid-template-columns:1fr}
+}
