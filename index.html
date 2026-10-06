@@ -1,106 +1,208 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RAB · Reserva Ambiental de Pensilvania, Caldas</title>
-<meta name="description" content="Portal de la Reserva Ambiental de Pensilvania (Caldas): refugio de Andinobates daleswansoni. Predios, especies amenazadas, zonas de manejo y equipamientos. FCV.">
+<title>Reserva Andinobates Boquerón · Pensilvania, Caldas</title>
+<meta name="description" content="Reserva Andinobates Boquerón (RAB), Pensilvania, Caldas: territorio, anfibios amenazadas, predios y monitoreo. Fundación para la Conservación de la Vida Silvestre en Colombia (FCV).">
 <link rel="icon" href="assets/icon-192.png"><link rel="stylesheet" href="vendor/maplibre-gl.css">
 <style>
-:root{--bg:#0b1510;--bg2:#10201a;--card:#14281f;--tx:#e9efe8;--mu:#a9bbb0;--ac:#e0a526;--ro:#d8432f;--vd:#5fb37a;--ln:#24402f}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,Segoe UI,sans-serif}
-a{color:var(--ac)}h1,h2,h3{line-height:1.15;margin:0 0 .5em}
-nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:18px;padding:10px 24px;background:rgba(11,21,16,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
-nav img{height:38px;background:#fff;border-radius:6px;padding:3px}nav a{color:var(--tx);text-decoration:none;font-size:14px}nav a:hover{color:var(--ac)}nav .sp{flex:1}
-nav .btn{background:var(--ac);color:#1a1200;padding:8px 14px;border-radius:999px;font-weight:700}
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 24px 60px;background:radial-gradient(1200px 600px at 75% 30%,#1f4a33 0,transparent 60%),linear-gradient(180deg,#0b1510,#0e2218)}
-.wrap{max-width:1120px;margin:0 auto;width:100%}.hero h1{font-size:clamp(2.2rem,6vw,4.4rem);max-width:15ch}.hero p{max-width:60ch;color:var(--mu);font-size:1.15rem}
-.pill{display:inline-block;border:1px solid var(--ac);color:var(--ac);border-radius:999px;padding:3px 12px;font-size:13px;margin-bottom:18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.cta a{padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--ac);color:var(--ac)}.cta a.p{background:var(--ac);color:#1a1200}
-section{padding:80px 24px}section:nth-of-type(even){background:var(--bg2)}h2{font-size:clamp(1.7rem,3.5vw,2.5rem)}.lead{color:var(--mu);max-width:70ch}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:28px}.kpi{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:18px}.kpi b{display:block;font-size:2.2rem;color:var(--ac)}.kpi span{color:var(--mu);font-size:14px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}@media(max-width:820px){.grid2{grid-template-columns:1fr}nav .hide{display:none}}
-.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:20px}.ph{aspect-ratio:4/3;border:2px dashed var(--ln);border-radius:14px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mu);padding:16px;font-size:14px}
-.tag{display:inline-block;padding:1px 9px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}.CR{background:#b3261e}.EN{background:#d8432f}.VU{background:#c98a1b}.NT,.LC,.DD,.NE{background:#496456}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left}th{color:var(--mu);font-weight:600}
-#mapa{height:560px;border-radius:14px;border:1px solid var(--ln)}.ctl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
-select,label.c{background:var(--card);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;font-size:14px}label.c{display:inline-flex;gap:6px;align-items:center}
-.bar{display:grid;grid-template-columns:minmax(120px,230px) 1fr 70px;gap:10px;align-items:center;margin:7px 0;font-size:14px}.bar i{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--vd),var(--ac))}.bar em{font-style:normal;color:var(--mu);text-align:right}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.gal figure{margin:0;background:var(--card);border-radius:12px;overflow:hidden}.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}.gal figcaption{padding:8px 12px;font-size:13px;color:var(--mu)}
-.src{font-size:12.5px;color:var(--mu);margin-top:10px}footer{padding:40px 24px;background:#07100b;color:var(--mu);font-size:14px}
-.tabs{display:flex;gap:8px;margin:14px 0}.tabs button{background:var(--card);color:var(--tx);border:1px solid var(--ln);border-radius:999px;padding:7px 14px;cursor:pointer}.tabs button.on{background:var(--ac);color:#1a1200;font-weight:700}
+:root{--paper:#f2eee4;--ink:#1b1a16;--mu:#6b675c;--rule:#cfc8b6;--red:#a8301e;--forest:#14221a;--bone:#e9e3d3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.7 Charter,"Iowan Old Style",Georgia,serif}
+a{color:inherit}h1,h2,h3{font-weight:400;line-height:1.1;margin:0}
+.sans{font-family:system-ui,"Segoe UI",sans-serif}
+em,i{font-style:italic}
+/* barra */
+header.top{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;align-items:center;gap:26px;padding:14px 34px;color:#fff;transition:background .3s,color .3s;font:600 12px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+header.top.s{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule)}
+header.top img{height:34px;display:none}header.top.s img{display:block}header.top.s .wm span{display:none}header.top .wm{display:flex;align-items:center;font-weight:700}
+header.top a{text-decoration:none}header.top a:hover{text-decoration:underline;text-underline-offset:5px}header.top .sp{flex:1}
+@media(max-width:900px){header.top nav{display:none}}
+/* portada */
+.hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end;background:#14221a url("https://fcvcol.org/wp-content/uploads/2026/02/PANORAMICADRONE1_RAB_DIC_2023-scaled.jpg") center/cover}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,12,.35),rgba(10,18,12,.1) 40%,rgba(10,18,12,.78))}
+.hero div{position:relative;padding:0 34px 72px;max-width:1100px}
+.hero .k{font:600 12px/1 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.85;margin-bottom:22px}
+.hero h1{font-size:clamp(2.8rem,9vw,7rem);letter-spacing:-.02em}
+.hero p{font-size:1.25rem;max-width:42ch;margin:22px 0 0;opacity:.92}
+/* capítulos */
+.cap{padding:110px 34px 40px;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:0 56px}
+.cap>.n{font:600 12px/1.5 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);padding-top:12px;border-top:1px solid var(--ink);position:sticky;top:76px;align-self:start}
+.cap>.n b{display:block;font:400 4.2rem/1 Georgia,serif;letter-spacing:0;color:var(--red);margin-bottom:6px}
+.cap h2{font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:-.01em;margin-bottom:.55em}
+.cap p{max-width:62ch;margin:0 0 1.1em}.cap p.cita{color:var(--mu);font-size:15px;margin-top:-.4em}
+.cap .w{grid-column:1/-1}
+@media(max-width:900px){.cap{grid-template-columns:1fr;padding:80px 22px 20px}.cap>.n{position:static;margin-bottom:22px}.cap>.n b{display:inline;font-size:2.4rem;margin-right:12px}}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin:34px 0;border-top:1px solid var(--ink)}
+.big div{padding:18px 18px 18px 0;border-bottom:1px solid var(--rule)}.big b{display:block;font:400 3.2rem/1 Georgia,serif;color:var(--red)}.big span{font:14px/1.35 system-ui,sans-serif;color:var(--mu);display:block;margin-top:6px}
+figure{margin:34px 0}figure img{width:100%;display:block}figcaption,.fuente{font:13px/1.5 system-ui,sans-serif;color:var(--mu);margin-top:9px;max-width:80ch}
+.full{grid-column:1/-1;margin:50px -34px}.full img{height:min(78vh,720px);object-fit:cover}.full figcaption{padding:0 34px}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}@media(max-width:900px){.dos{grid-template-columns:1fr}.full{margin:40px -22px}.full figcaption{padding:0 22px}}
+.oscuro{background:var(--forest);color:#e8e3d3;margin-top:70px}.oscuro .cap>.n{border-color:#e8e3d3;color:#aeb7a8}.oscuro .cap>.n b{color:#f08a5d}
+.oscuro .fuente,.oscuro figcaption,.oscuro .cap p.cita{color:#9aa492}.oscuro .big div{border-color:#34483a}.oscuro .big{border-color:#e8e3d3}.oscuro .big b{color:#f08a5d}.oscuro .big span{color:#b5bfac}
+/* tablas */
+table{width:100%;border-collapse:collapse;font:14.5px/1.45 system-ui,sans-serif;margin-top:14px}
+th{font-weight:600;text-align:left;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);padding:8px 10px 8px 0;border-bottom:1.5px solid var(--ink)}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.oscuro th{color:#aeb7a8;border-color:#e8e3d3}.oscuro td{border-color:#34483a}
+.cat{font-weight:700;letter-spacing:.04em}.CR{color:#b3123f}.EN{color:#c25200}.VU{color:#8a6d00}.NT{color:#6b675c}.oscuro .CR{color:#ff7a9f}.oscuro .EN{color:#ffa45e}.oscuro .VU{color:#f0cf52}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+/* barras finas */
+.sel{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 6px;font:600 12px/1 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.sel button{all:unset;cursor:pointer;color:var(--mu);padding-bottom:5px;border-bottom:2px solid transparent}.sel button.on{color:var(--ink);border-color:var(--red)}
+.oscuro .sel button.on{color:#fff;border-color:#f08a5d}
+.b{display:grid;grid-template-columns:minmax(120px,240px) 1fr 60px;gap:14px;align-items:center;font:14px/1.3 system-ui,sans-serif;margin:11px 0}.b i{display:block;height:4px;background:var(--red)}.b em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.oscuro .b i{background:#f08a5d}
+/* mapa narrativo */
+.rel{position:relative;display:grid;grid-template-columns:minmax(300px,36%) 1fr}
+.rel .pas{padding:0 34px}.rel .st{min-height:88vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--rule)}
+.rel .st h3{font-size:1.9rem;margin-bottom:.4em}.rel .st p{font-size:17px;margin:0 0 .9em}.rel .st small{font:13px/1.4 system-ui,sans-serif;color:var(--mu)}
+.rel .mp{position:sticky;top:60px;height:calc(100vh - 60px)}#mp{position:absolute;inset:0}
+.leyenda{position:absolute;left:14px;bottom:14px;z-index:5;background:rgba(242,238,228,.94);padding:12px 14px;font:12.5px/1.9 system-ui,sans-serif;display:none}
+.leyenda img{width:20px;height:20px;vertical-align:middle;margin-right:7px}.leyenda s{display:inline-block;width:14px;height:10px;margin-right:9px;vertical-align:middle;text-decoration:none}
+@media(max-width:900px){.rel{grid-template-columns:1fr}.rel .mp{order:-1;height:46vh;top:50px;z-index:3}.rel .st{min-height:60vh}.rel .pas{padding:0 22px}}
+.maplibregl-popup-content{font:13px/1.45 system-ui,sans-serif;border-radius:0;padding:10px 12px}
+.autores{border-top:1px solid var(--ink);margin-top:34px;padding-top:12px;font:15px/1.6 system-ui,sans-serif}
+footer{background:#0c140f;color:#aeb7a8;padding:60px 34px;font:14px/1.7 system-ui,sans-serif}footer .in{max-width:1180px;margin:0 auto}footer a{color:#e8e3d3}
+.ref{font:14px/1.55 system-ui,sans-serif;padding-left:2em;text-indent:-2em;margin:0 0 10px}
+.visor{display:inline-block;margin-top:8px;font:600 13px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:5px}
 </style></head><body>
-<nav><img src="assets/logo-fcv.png" alt="FCV"><a href="#reserva">La reserva</a><a href="#insignia">Andinobates</a><a href="#especies">Especies</a><a href="#mapa-s">Mapa</a><a href="#cruces" class="hide">Cruces</a><a href="#predios" class="hide">Predios</a><a href="#equipamientos" class="hide">Equipamientos</a><a href="#galeria" class="hide">Galería</a><span class="sp"></span><a class="btn" href="tablero.html">Abrir tablero</a></nav>
+<header class="top" id="top"><a href="#" class="wm"><img src="assets/logo-fcv.png" alt="FCV"><span>FCV · RAB</span></a><nav style="display:flex;gap:26px"><a href="#c1">Reserva</a><a href="#c2">Territorio</a><a href="#c4">Anfibios</a><a href="#c5">Otros grupos</a><a href="#c11">Predios</a><a href="#c12">Visitantes</a></nav><span class="sp"></span><a href="tablero.html">Visor cartográfico →</a></header>
 
-<header class="hero"><div class="wrap"><span class="pill">Fundación para la Conservación de la Vida Silvestre en Colombia</span>
-<h1>Reserva Ambiental de Pensilvania, Caldas</h1>
-<p>Un refugio para las ranas de los Andes centrales. La RAB protege hábitat de <em>Andinobates daleswansoni</em> (rana roja, En Peligro) y de decenas de especies de anfibios y reptiles, y organiza sus predios, zonas de manejo y monitoreo en un solo lugar.</p>
-<div class="cta"><a class="p" href="#mapa-s">Explorar el mapa</a><a href="tablero.html">Tablero de análisis</a></div></div></header>
+<section class="hero"><div><div class="k">Reserva Natural de la Sociedad Civil · Pensilvania, Caldas</div><h1>Reserva Andinobates Boquerón</h1><p>Protegiendo anfibios endémicos, bosque andino y corredores biológicos en el corazón de los Andes colombianos.</p></div></section>
 
-<section id="reserva"><div class="wrap"><h2>La reserva en cifras</h2><p class="lead">Resumen calculado a partir de la cartografía y las bases de monitoreo de la FCV.</p><div class="kpis" id="kpis"></div><p class="src">Fuentes: límite RAB (IGAC 2024), tablas de vértices de predios FCV, BD Herpetos RAB 2025 (Humboldt/FCV).</p></div></section>
+<article>
+<section class="cap" id="c1"><div class="n"><b>01</b>Quiénes somos</div><div>
+<h2>Un refugio para las ranas de la cordillera Central</h2>
+<p>La Reserva Andinobates Boquerón (RAB) es un proyecto de la Fundación para la Conservación de la Vida Silvestre en Colombia (FCV) que, con el apoyo de Rainforest Trust, consolida desde abril de 2023 un área de conservación para especies en peligro en el nororiente de Caldas (FCV, 2026).</p>
+<p>Lleva el nombre de <em>Andinobates daleswansoni</em>, la rana roja de «pantaloncitos café», especie bandera del proyecto: endémica de la zona y categorizada En Peligro. La reserva rinde además homenaje a Juan Pablo Ruiz Soto, ambientalista y economista; 120 hectáreas fueron donadas por George y Cathy Ledec a través de Rainforest Trust (FCV, 2026).</p>
+<div class="big"><div><b>461,7</b><span>hectáreas protegidas</span></div><div><b>30</b><span>especies de anfibios</span></div><div><b>223</b><span>especies de aves</span></div><div><b>26</b><span>especies de mamíferos</span></div></div>
+<p class="fuente" style="margin-top:-18px">Fuente: FCV (2026). Cifras de monitoreo 2023–2026; el límite proviene de la cartografía IGAC 2024 de la RAB.</p>
+</div>
+<figure class="full"><img loading="lazy" src="https://fcvcol.org/wp-content/uploads/2026/05/Bosque.jpg" alt="Bosque andino en recuperación dentro de la RAB"><figcaption>Bosque andino de la RAB. Fotografía: RAB-FCV.</figcaption></figure>
+</section>
 
-<section id="insignia"><div class="wrap grid2"><div><span class="pill">Especie insignia</span><h2><em>Andinobates daleswansoni</em></h2><p class="lead">Rana dendrobátida roja de distribución restringida, categorizada <span class="tag EN">EN</span> (UICN 2025-1) y En Peligro a escala nacional. En la base de monitoreo aparece como endémica local.</p><div id="andi"></div></div><div class="ph" id="fotoA">Foto de Andinobates daleswansoni<br>(agrégala en fotos/ y galeria.json)</div></div></section>
+<section class="cap" id="c2" style="padding-bottom:0"><div class="n"><b>02</b>Territorio</div><div><h2>Entre 1800 y 2700 metros, en el área amortiguadora de Selva de Florencia</h2>
+<p>La RAB está en el municipio de Pensilvania, corregimiento de San Daniel, entre las veredas Arenillal, Santa Teresa y La Cristalina, a hora y media de la cabecera municipal. Hace parte del área con función amortiguadora del Parque Nacional Natural Selva de Florencia (FCV, 2026). Recorre el mapa: cada paso añade una capa.</p></div></section>
+<div class="rel" id="rel"><div class="pas">
+ <div class="st" data-s="0"><h3>Caldas y Pensilvania</h3><p>Caldas reúne todos los pisos térmicos de los Andes colombianos, desde los valles del Magdalena y del Cauca hasta el Nevado del Ruiz. Pensilvania, en el alto oriente del departamento, es conocida como la Perla del Oriente (FCV, 2026).</p><small>Fuente: FCV (2026). Mapa base: Esri.</small></div>
+ <div class="st" data-s="1"><h3>El límite: 461,7 hectáreas</h3><p>Cerca del 70 % del área son bosques en estado avanzado de sucesión, dentro de un mosaico de coberturas. La reserva drena a las microcuencas La Honda, La Cristalina, Santa Rosa y al nacimiento de la quebrada Santa Teresa, que vierten a la subcuenca del río Tenerife, cuenca del río La Miel (FCV, 2026).</p><small>Fuente: límite RAB, IGAC (2024); texto, FCV (2026).</small></div>
+ <div class="st" data-s="2"><h3>Zonas de manejo</h3><p>La zonificación dedica <b id="zc"></b> ha a conservación, <b id="zr"></b> ha a restauración, <b id="za"></b> ha a amortiguación y <b id="zi"></b> ha al uso intensivo e infraestructura, donde se concentran las construcciones y el uso público.</p><small>Fuente: ordenamiento predial de la RAB (FCV). Áreas calculadas sobre el polígono de cada zona.</small></div>
+ <div class="st" data-s="3"><h3>Veintiocho predios</h3><p>La reserva se ha armado predio a predio: <b id="pa"></b> ya adquiridos y <b id="pp"></b> proyectados para compra. Cada polígono se reconstruyó a partir de sus vértices; los predios de la compra de 2025 quedan por fuera del límite actual.</p><small>Fuente: tablas de vértices de predios, FCV (2024–2025). No se publican propietarios ni datos catastrales.</small></div>
+ <div class="st" data-s="4"><h3>La rana roja</h3><p>La base de herpetología registra <b id="na"></b> observaciones de <em>Andinobates daleswansoni</em> (incluidas las identificaciones «cf.»). Casi todas caen en la zona de conservación.</p><small>Fuente: BD Herpetos RAB 2025 (FCV, 2025), registros dentro del límite. Una observación no equivale a abundancia.</small></div>
+ <div class="st" data-s="5"><h3>Otras ranas amenazadas</h3><p>Junto a <em>Andinobates</em>, la reserva sostiene ranas de lluvia (<em>Pristimantis</em>) y ranas de cristal (<em>Nymphargus</em>) en categorías CR, EN y VU. Cada ícono es una observación georreferenciada.</p><small>Fuente: FCV (2025); categorías UICN (IUCN, 2025).</small></div>
+</div><div class="mp"><div id="mp"></div><div class="leyenda" id="ley"></div></div></div>
 
-<section id="especies"><div class="wrap"><h2>Especies amenazadas monitoreadas</h2><p class="lead">Herpetofauna registrada en transectos y observaciones (2019–2025) con categoría CR, EN o VU.</p><div class="card" style="overflow:auto"><table id="tAmen"></table></div><p class="src">Fuente: BD Herpetos RAB 2025 (hoja «Listado»), categorías UICN 2025-1 y nacional. La lista incluye taxones con «cf.» o «aff.» tal como están en la base.</p></div></section>
+<section class="cap" id="c3"><div class="n"><b>03</b>Objetivos</div><div><h2>Qué buscamos</h2>
+<p><b>Gestionar un área protegida</b> que garantice la recuperación y conservación del ecosistema de selva andina.</p>
+<p><b>Conservar anfibios endémicos en peligro</b> y otras especies de importancia crítica.</p>
+<p><b>Educar y producir de forma sostenible</b> con los habitantes de la zona de influencia.</p>
+<p><b>Implementar el corredor de conectividad socioambiental</b> Páramo de Sonsón – Selva de Florencia (FCV, 2026).</p></div></section>
+</article>
 
-<section id="mapa-s"><div class="wrap"><h2>Mapa: predios, zonas de manejo y registros</h2><p class="lead">Cada predio es un polígono individual construido con sus vértices. Elige uno para encuadrarlo y ver los registros de especies dentro de él.</p>
-<div class="ctl"><select id="selPredio"><option value="">Todos los predios</option></select><label class="c"><input type="checkbox" id="cZ" checked> Zonas de manejo</label><label class="c"><input type="checkbox" id="cA" checked> Andinobates</label><label class="c"><input type="checkbox" id="cM" checked> Otras amenazadas (CR/EN/VU)</label><label class="c"><input type="checkbox" id="cE" checked> Zona de uso intensivo</label></div>
-<div id="mapa"></div><div class="card" id="info" style="margin-top:12px"></div><p class="src">Fuentes: polígonos de predios FCV (vértices 2024–2025), zonificación RAB, BD Herpetos RAB 2025. Mapa base © Esri.</p></div></section>
+<div class="oscuro"><article>
+<section class="cap" id="c4"><div class="n"><b>04</b>Anfibios</div><div>
+<h2>El corazón de la reserva</h2>
+<p>La RAB protege 30 especies de anfibios, 21 de ellas endémicas de Colombia (70 %): cinco se distribuyen estrictamente entre Pensilvania, Samaná y Manzanares, trece tienen endemismo regional y hay tres especies nuevas en proceso de descripción. Esa diversidad la hace parte de la KBA Selva de Florencia (código 14407) (FCV, 2026).</p>
+<p>Ocupa apenas el 4,62 % del área del Parque Nacional Natural Selva de Florencia, pero alberga cerca del 30 % de su diversidad de anfibios. Entre 2023 y 2026 se registraron 1.936 individuos en 18 transectos permanentes repartidos en cinco tipos de cobertura (FCV, 2026).</p>
+<div class="big"><div><b>21</b><span>de 30 especies endémicas de Colombia</span></div><div><b>10</b><span>anuros amenazados (2 CR, 3 EN, 5 VU)</span></div><div><b>1.936</b><span>individuos registrados 2023–2026</span></div><div><b>34</b><span>especies estimadas para la reserva</span></div></div>
+<p class="cita">Fuente: FCV (2026). La estimación de 34 especies es del equipo de monitoreo y aún no es un inventario cerrado.</p></div>
+<figure class="full"><img loading="lazy" src="https://fcvcol.org/wp-content/uploads/2026/02/Herpetos-RAB-1-scaled.jpg" alt="Andinobates daleswansoni"><figcaption><em>Andinobates daleswansoni</em>, rana roja de pantaloncitos café. Endémica, En Peligro. Fotografía: RAB-FCV.</figcaption></figure>
+<div class="w"><h2 style="font-size:2rem;margin-bottom:.4em">Especies amenazadas en los registros</h2>
+<p style="max-width:70ch">La siguiente tabla sale de la base de monitoreo herpetológico (2019–2025) y conserva las identificaciones «cf.» y «aff.» tal como fueron anotadas, por lo que enumera más taxones (12) que las diez especies confirmadas de la lista oficial.</p>
+<table id="tAmen"></table><p class="fuente">Fuente: BD Herpetos RAB 2025 (FCV, 2025), hoja «Listado»; categorías UICN 2025-1 (IUCN, 2025). ★ marca a <em>Andinobates</em>, especie bandera. Registros = observaciones, no abundancia.</p></div>
+<div class="w" style="margin-top:70px"><h2 style="font-size:2rem;margin-bottom:.4em">Dónde están las ranas</h2>
+<p style="max-width:70ch">Cada cruce parte de las observaciones georreferenciadas dentro del límite de la RAB. Cambia la capa y la medida.</p>
+<div class="sel" id="tc"></div><div class="sel" id="tm"></div><div id="bars"></div>
+<p class="fuente">Fuente: BD Herpetos RAB 2025 (FCV, 2025), cruzada con la zonificación, las coberturas y los predios de la RAB. «Cobertura (campo)» usa el código anotado en el monitoreo (BA bosque avanzado, BJ bosque joven, BP bosque de pino, M matorral, P pastizal).</p></div>
+<div class="w" style="margin-top:60px"><div><h2 style="font-size:2rem;margin-bottom:.4em">Hallazgos recientes</h2>
+<p><em>Pristimantis tribulosus</em>, la rana de lluvia ornamentada, está críticamente amenazada. <em>Pristimantis carylae</em> fue descrita en 2021 con localidad tipo en Boquerón, hay tres <em>Pristimantis</em> sp. nov. en descripción y <em>Rhinella kumanday</em> es el primer registro para Pensilvania (FCV, 2026).</p></div>
+</div></div>
+</section></article></div>
 
-<section id="cruces"><div class="wrap"><h2>Cruces con las especies</h2><p class="lead">Todos los análisis parten de los registros de especies. Cambia el cruce y la métrica.</p><div class="tabs" id="tabsC"></div><div class="tabs" id="tabsM"></div><div id="bars"></div><p class="src">Registros georreferenciados dentro del límite de la RAB. «Cobertura (campo)» usa el código de cobertura anotado en el monitoreo (BA, BJ, BP, M, P); las demás se cruzan espacialmente con las capas del SIG. Cada registro es una observación; no equivale a abundancia poblacional.</p></div></section>
+<article>
+<section class="cap" id="c5"><div class="n"><b>05</b>Otros grupos</div><div>
+<h2>Reptiles, aves, mamíferos, polillas y flora</h2>
+<p>Un bosque bien conservado sostiene mucho más que ranas. El monitoreo de la RAB reúne ya registros de seis grandes grupos (FCV, 2026).</p>
+<h3 style="font-size:1.6rem;margin:1.4em 0 .4em">Reptiles</h3>
+<p>Se han registrado 16 especies, ocho lagartos y ocho serpientes; la mitad son endémicas de Colombia. El hallazgo de la culebra de Nicéforo María (<em>Synophis niceforomariae</em>), descrita en 2016, amplió su rango altitudinal conocido de 900–1700 a 2100 m s. n. m. (FCV, 2026).</p>
+<h3 style="font-size:1.6rem;margin:1.4em 0 .4em">Aves</h3>
+<p>Son 223 especies, cinco endémicas y diez migratorias, con seis en alguna categoría de amenaza. Allí vive el cacique candela (<em>Hypopyrrhus pyrohypogaster</em>, VU), ave insignia de Pensilvania, y la perdiz colorada (<em>Odontophorus hyperythrus</em>, VU, endémica), de la que se han visto adultos y polluelos (FCV, 2026).</p>
+<h3 style="font-size:1.6rem;margin:1.4em 0 .4em">Mamíferos</h3>
+<p>Transitan o residen 26 especies, entre ellas tres felinos: yaguarundí, ocelote y puma. El mono cariblanco (<em>Cebus versicolor</em>, EN) se mueve entre la reserva y Selva de Florencia, y en abril de 2026 se avistó una hembra de puma con su cachorro (FCV, 2026).</p>
+<h3 style="font-size:1.6rem;margin:1.4em 0 .4em">Polillas y mariposas</h3>
+<p>Se identificaron 165 especies de polillas en 17 familias, lideradas por Geometridae (57), Erebidae (33) y Crambidae (19), y 45 de mariposas (FCV, 2026).</p>
+<h3 style="font-size:1.6rem;margin:1.4em 0 .4em">Flora</h3>
+<p>Se han catalogado 58 especies, diez endémicas de Colombia, entre ellas <em>Passiflora parritae</em>. Se conserva también <em>Cedrela montana</em> (VU) y el comino crespo (<em>Aniba perutilis</em>), casi extinto localmente por su madera. Hay 2.625 árboles plaqueteados en los transectos (FCV, 2026).</p>
+<p class="cita">Nota: la narrativa de FCV (2026) reporta 26 especies de mamíferos en su versión de marzo de 2026; versiones anteriores del StoryMap citaban 24.</p>
+</div>
+<figure class="full"><img loading="lazy" src="https://fcvcol.org/wp-content/uploads/2026/05/cacique-candela-Hypopyrrhus-pyrohypogaster.jpg" alt="Cacique candela" style="object-position:center 30%"><figcaption>Cacique candela, <em>Hypopyrrhus pyrohypogaster</em>, ave insignia de Pensilvania. Fotografía: RAB-FCV.</figcaption></figure>
+</section>
 
-<section id="predios"><div class="wrap"><h2>Predios</h2><p class="lead">Predios adquiridos y predios proyectados de compra 2025, con el porcentaje de su polígono que cae dentro del límite de la RAB.</p><div class="card" style="overflow:auto"><table id="tPred"></table></div><p class="src">Áreas calculadas en MAGNA-SIRGAS Origen Nacional (EPSG:9377) desde los vértices. No se publican propietarios, matrículas ni códigos catastrales.</p></div></section>
+<section class="cap" id="c10"><div class="n"><b>06</b>Comunidad</div><div><h2>Educación ambiental con la vereda</h2>
+<p>La FCV acompaña los proyectos ambientales escolares (PRAE) en el área urbana y rural de Pensilvania. Con la comunidad de la vereda Santa Teresa elaboró la «Guía de Fauna: Vereda Santa Teresa, Pensilvania, Caldas» (ISBN 978-628-96418-0-6), un listado ilustrado de aves, anfibios, reptiles y mamíferos construido en talleres, financiado en 2024 por la convocatoria PROCEDA de Corpocaldas, Más Biomas y la Fundación FESCO (FCV, 2026).</p></div></section>
 
-<section id="equipamientos"><div class="wrap grid2"><div><h2>Equipamientos y centro de visitantes</h2><p class="lead">La zona de uso intensivo e infraestructura agrupa los lugares donde se concentran las construcciones y el uso público. Está marcada en el mapa.</p><div class="card"><b id="eqHa"></b><p style="color:var(--mu);margin:.4em 0 0">Pendiente de integrar: casas y equipamientos existentes y la proyección del nuevo centro de visitantes (en los archivos de trabajo hay propuestas de ubicación «Casa-Cerro Cantera», «Casa-Cerro detrás Casa» y «Zona Residencial»).</p></div></div><div class="ph">Plano o foto del centro de visitantes<br>(pendiente)</div></div></section>
+<section class="cap" id="c11"><div class="n"><b>07</b>Predios</div><div><h2>Cada predio, con sus ranas</h2>
+<p>Los predios se muestran como polígonos individuales, con la proporción de cada uno que cae dentro del límite de la RAB y las observaciones de especies que contiene. Las filas con 0 % corresponden a la compra de 2025, aún fuera del límite. «El Laurel – El Silencio» es un englobe que contiene a los dos predios que lleva por nombre, por lo que sus áreas no son sumables.</p>
+<table id="tPred"></table><p class="fuente">Fuente: tablas de vértices de predios, FCV (2024–2025); áreas en MAGNA-SIRGAS Origen Nacional (EPSG:9377); registros de BD Herpetos RAB 2025 (FCV, 2025). Sin propietarios, matrículas ni datos catastrales.</p>
+<a class="visor" href="tablero.html">Ver los predios en el visor cartográfico →</a></div></section>
 
-<section id="galeria"><div class="wrap"><h2>Galería</h2><div class="gal" id="gal"><div class="ph" style="grid-column:1/-1">Aún no hay fotos. Súbelas a la carpeta fotos/ y regístralas en fotos/galeria.json.</div></div></div></section>
+<section class="cap" id="c12"><div class="n"><b>08</b>Visitantes</div><div><h2>Centro de visitantes y equipamientos</h2>
+<p>El centro de visitantes ya cuenta con estudios completados y diseños finales. Junto a él avanzan el turismo científico, la Galería de la Memoria Ambiental, el proyecto Rascaderas, un diagnóstico de la vereda Santa Teresa y un monitoreo acústico pasivo con 40 grabadoras (FCV, 2026).</p>
+<p>La cartografía actual registra <b id="eqha"></b> hectáreas de zona de uso intensivo e infraestructura. La ubicación proyectada del nuevo centro aún no está incorporada a las capas: se integrará al visor cuando se entregue su georreferenciación.</p>
+<p class="fuente">Fuente: FCV (2026); zonificación de la RAB (FCV).</p></div></section>
 
-<footer><div class="wrap">© FCV · Reserva Ambiental de Pensilvania, Caldas. <a href="tablero.html">Tablero de análisis completo</a> · Datos: FCV, IGAC, Corpocaldas, Humboldt, UICN.</div></footer>
-<script src="vendor/maplibre-gl.js"></script><script src="portal-datos.js"></script>
+<section class="cap" id="c13"><div class="n"><b>09</b>Contacto</div><div><h2>Habla con el equipo</h2>
+<p><b>Adriana Herrera-Montes, PhD</b>, directora de la RAB.<br>Calle 4 n.º 6-75, apto. 3, Pensilvania, Caldas.<br><a href="mailto:adrianaherrera@fcvorg.com">adrianaherrera@fcvorg.com</a></p>
+<p>Aliados: Rainforest Trust, Parques Nacionales Naturales de Colombia, Gobernación de Caldas, Alcaldía de Pensilvania, Grupo de Observadores de Aves de Pensilvania y Reserva Naranja, Café y Pimienta. Datos abiertos: SiB Colombia, eBird, iNaturalist. #PensilvaniaTerritorioAnfibio</p></div></section>
+
+<section class="cap" id="ref" style="padding-bottom:90px"><div class="n"><b>·</b>Referencias</div><div>
+<p class="ref">Fundación para la Conservación de la Vida Silvestre en Colombia. (2025). <em>BD Herpetos RAB 2025</em> [Base de datos inédita]. FCV.</p>
+<p class="ref">Fundación para la Conservación de la Vida Silvestre en Colombia. (2026, 24 de mayo). <em>Reserva Andinobates Boquerón</em>. https://fcvcol.org/proyectos-y-procesos/reserva-andinobates-boqueron/</p>
+<p class="ref">Fundación para la Conservación de la Vida Silvestre en Colombia. (2026, 30 de mayo). <em>Reserva Andinobates Boquerón (RAB)</em> [StoryMap]. ArcGIS StoryMaps. https://storymaps.arcgis.com/stories/8635e2eee0714f94ab1f1d977bdefbe1</p>
+<p class="ref">Instituto Geográfico Agustín Codazzi. (2024). <em>Límite de la Reserva Andinobates Boquerón</em> [Capa geográfica]. IGAC.</p>
+<p class="ref">IUCN. (2025). <em>The IUCN Red List of Threatened Species</em> (Versión 2025-1). https://www.iucnredlist.org</p>
+</div></section>
+</article>
+<footer><div class="in">© Fundación para la Conservación de la Vida Silvestre en Colombia (FCV) · Reserva Andinobates Boquerón, Pensilvania, Caldas.<br>Mapas: © Esri, Maxar. Visor de análisis: <a href="tablero.html">tablero.html</a></div></footer>
+
+<script src="vendor/maplibre-gl.js"></script><script src="portal-datos.js"></script><script src="iconos.js"></script>
 <script>
 const D=RABDATA,$=s=>document.querySelector(s),F=n=>n.toLocaleString('es-CO',{maximumFractionDigits:1});
 const T=D.reg.t,regs=D.reg.r.map(r=>({lon:r[0],lat:r[1],e:T.e[r[2]],c:T.c[r[3]],u:T.u[r[4]],a:r[5],n:r[6],z:T.z[r[7]],p:T.p[r[8]],k:T.k[r[9]]}));
 const AM=u=>['CR','EN','VU'].includes(u);
-const ad=D.predios.features.filter(f=>f.properties.estado==='Adquirido'),pa=D.predios.features.filter(f=>f.properties.estado!=='Adquirido');
-const nAmen=D.especies.filter(s=>AM(s.uicn)).length,nA=regs.filter(r=>r.a).reduce((s,r)=>s+r.n,0);
-$('#kpis').innerHTML=[[F(D.limite.features[0].properties.ha),'hectáreas en el límite de la RAB'],[D.predios.features.length,`predios (${ad.length} adquiridos, ${pa.length} proyectados)`],[D.especies.length,'taxones de anfibios y reptiles registrados'],[nAmen,'taxones en CR, EN o VU'],[nA,'registros de Andinobates']].map(k=>`<div class="kpi"><b>${k[0]}</b><span>${k[1]}</span></div>`).join('');
-// Andinobates
-const A=regs.filter(r=>r.a),byZ={};A.forEach(r=>byZ[r.z||'Sin zona']=(byZ[r.z||'Sin zona']||0)+r.n);const byP={};A.forEach(r=>byP[r.p||'Sin predio']=(byP[r.p||'Sin predio']||0)+r.n);
-$('#andi').innerHTML=`<div class="card"><b>${nA}</b> registros en ${A.length} puntos distintos.<br>Por zona: ${Object.entries(byZ).sort((a,b)=>b[1]-a[1]).map(x=>`${x[0]} (${x[1]})`).join(', ')}.<br>Predios con registros: ${Object.entries(byP).sort((a,b)=>b[1]-a[1]).map(x=>`${x[0]} (${x[1]})`).join(', ')}.</div>`;
-// amenazadas
-const orden={CR:0,EN:1,VU:2};$('#tAmen').innerHTML='<tr><th>Especie</th><th>Nombre común</th><th>UICN</th><th>Endemismo</th><th>Registros</th></tr>'+D.especies.filter(s=>AM(s.uicn)).sort((a,b)=>orden[a.uicn]-orden[b.uicn]||b.n-a.n).map(s=>`<tr><td><i>${s.especie}</i>${s.andinobates?' ★':''}</td><td>${s.nombre||'—'}</td><td><span class="tag ${s.uicn}">${s.uicn}</span></td><td>${{R:'Regional',L:'Local',N:'Nacional'}[s.endemismo]||'—'}</td><td>${s.n}</td></tr>`).join('');
-// predios tabla
-$('#tPred').innerHTML='<tr><th>Predio</th><th>Estado</th><th>Área (ha)</th><th>% en RAB</th><th>Registros</th><th>Amenazadas</th></tr>'+D.predios.features.map(f=>f.properties).map(p=>{const rs=regs.filter(r=>r.p===p.nombre);return`<tr><td>${p.nombre}</td><td>${p.estado}</td><td>${F(p.area_vertices_ha)}</td><td>${F(p.pct_en_rab)}</td><td>${rs.reduce((s,r)=>s+r.n,0)}</td><td>${rs.filter(r=>AM(r.u)).reduce((s,r)=>s+r.n,0)}</td></tr>`}).join('');
+const hd=$('#top');const sc=()=>hd.classList.toggle('s',scrollY>innerHeight*.7);addEventListener('scroll',sc);sc();
+// cifras de zonas
+const zh={};D.zonas.features.forEach(f=>{const z=f.properties.zona.startsWith('Zona de uso')?'i':f.properties.zona[8];zh[z]=(zh[z]||0)+f.properties.ha});
+$('#zc').textContent=F(zh.c);$('#zr').textContent=F(zh.r);$('#za').textContent=F(zh.a);$('#zi').textContent=F(zh.i);$('#eqha').textContent=F(zh.i);
+const ad=D.predios.features.filter(f=>f.properties.estado==='Adquirido').length;$('#pa').textContent=ad;$('#pp').textContent=D.predios.features.length-ad;
+$('#na').textContent=regs.filter(r=>r.a).reduce((s,r)=>s+r.n,0);
+// tabla amenazadas
+const ord={CR:0,EN:1,VU:2},end={R:'Regional',L:'Local',N:'Nacional'};
+$('#tAmen').innerHTML='<tr><th>Especie</th><th>Nombre común</th><th>UICN</th><th>Endemismo</th><th class="num">Registros</th></tr>'+D.especies.filter(s=>AM(s.uicn)).sort((a,b)=>ord[a.uicn]-ord[b.uicn]||b.n-a.n).map(s=>`<tr><td><i>${s.especie}</i>${s.andinobates?' ★':''}</td><td>${s.nombre||'—'}</td><td class="cat ${s.uicn}">${s.uicn}</td><td>${end[s.endemismo]||'—'}</td><td class="num">${s.n}</td></tr>`).join('');
+// predios
+$('#tPred').innerHTML='<tr><th>Predio</th><th>Estado</th><th class="num">Área (ha)</th><th class="num">% en RAB</th><th class="num">Registros</th><th class="num">Amenazadas</th><th class="num">Andinobates</th></tr>'+D.predios.features.map(f=>f.properties).sort((a,b)=>a.estado.localeCompare(b.estado)||a.nombre.localeCompare(b.nombre)).map(p=>{const rs=regs.filter(r=>r.p===p.nombre),s=f=>rs.filter(f).reduce((t,r)=>t+r.n,0);return`<tr><td>${p.nombre}</td><td>${p.estado}</td><td class="num">${F(p.area_vertices_ha)}</td><td class="num">${F(p.pct_en_rab)}</td><td class="num">${s(()=>1)||'—'}</td><td class="num">${s(r=>AM(r.u))||'—'}</td><td class="num">${s(r=>r.a)||'—'}</td></tr>`}).join('');
 // cruces
-const cr=D.cruces;const CT={zona:['Zona de manejo',cr.zona],cobertura_sig:['Cobertura (SIG)',cr.cobertura_sig],cobertura_campo:['Cobertura (campo)',cr.cobertura_campo],predio:['Predio',cr.predio]};
-const MT={registros:'Registros',registros_amenazadas:'Registros de especies amenazadas',registros_andinobates:'Registros de Andinobates'};let cc='zona',mm='registros_andinobates';
-function tabs(el,obj,get,set){$(el).innerHTML=Object.entries(obj).map(([k,v])=>`<button data-k="${k}" class="${get()===k?'on':''}">${Array.isArray(v)?v[0]:v}</button>`).join('');$(el).onclick=e=>{if(e.target.dataset.k){set(e.target.dataset.k);draw()}}}
-function draw(){tabs('#tabsC',CT,()=>cc,v=>cc=v);tabs('#tabsM',MT,()=>mm,v=>mm=v);const rows=CT[cc][1].filter(x=>x[mm]>0).sort((a,b)=>b[mm]-a[mm]).slice(0,12),mx=Math.max(1,...rows.map(x=>x[mm]));$('#bars').innerHTML=rows.length?rows.map(x=>`<div class="bar"><span>${x.clave}</span><i style="width:${x[mm]/mx*100}%"></i><em>${x[mm]}</em></div>`).join(''):'<p class="lead">Sin registros para esta combinación.</p>'}draw();
-// equipamientos
-const ei=D.infra.features.length;$('#eqHa').textContent=`${ei} polígonos de uso intensivo e infraestructura en el SIG`;
-// galería
-fetch('fotos/galeria.json').then(r=>r.json()).then(g=>{if(!g.length)return;$('#gal').innerHTML=g.map(x=>`<figure><img loading="lazy" src="fotos/${x.archivo}" alt="${x.titulo}"><figcaption>${x.titulo}${x.credito?' · '+x.credito:''}</figcaption></figure>`).join('');const a=g.find(x=>/andinobates/i.test(x.titulo));if(a)$('#fotoA').outerHTML=`<img src="fotos/${a.archivo}" alt="${a.titulo}" style="width:100%;border-radius:14px">`}).catch(()=>{});
-// mapa
-const m=new maplibregl.Map({container:'mapa',style:{version:8,sources:{b:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,maxzoom:19,attribution:'Imágenes © Esri, Maxar'}},layers:[{id:'b',type:'raster',source:'b'}]},bounds:[-75.137,5.43,-75.1,5.465],fitBoundsOptions:{padding:30}});
+const cr=D.cruces,CT={zona:['Zona de manejo',cr.zona],cobertura_sig:['Cobertura (SIG)',cr.cobertura_sig],cobertura_campo:['Cobertura (campo)',cr.cobertura_campo],predio:['Predio',cr.predio]};
+const MT={registros_andinobates:'Andinobates',registros_amenazadas:'Especies amenazadas',registros:'Todos los registros'};let cc='zona',mm='registros_andinobates';
+function tabs(el,o,g,s){$(el).innerHTML=Object.entries(o).map(([k,v])=>`<button data-k="${k}" class="${g()===k?'on':''}">${Array.isArray(v)?v[0]:v}</button>`).join('');$(el).onclick=e=>{if(e.target.dataset.k){s(e.target.dataset.k);dib()}}}
+function dib(){tabs('#tc',CT,()=>cc,v=>cc=v);tabs('#tm',MT,()=>mm,v=>mm=v);const rs=CT[cc][1].filter(x=>x[mm]>0).sort((a,b)=>b[mm]-a[mm]).slice(0,12),mx=Math.max(1,...rs.map(x=>x[mm]));$('#bars').innerHTML=rs.length?rs.map(x=>`<div class="b"><span>${x.clave}</span><i style="width:${x[mm]/mx*100}%"></i><em>${x[mm]}</em></div>`).join(''):'<p>Sin registros para esta combinación.</p>'}dib();
+// mapa narrativo
+const pts=f=>({type:'FeatureCollection',features:regs.filter(f).map(r=>({type:'Feature',properties:r,geometry:{type:'Point',coordinates:[r.lon,r.lat]}}))});
+const m=new maplibregl.Map({container:'mp',style:{version:8,sources:{b:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,maxzoom:19,attribution:'Imágenes © Esri, Maxar'}},layers:[{id:'b',type:'raster',source:'b'}]},center:[-75.12,5.45],zoom:8,scrollZoom:false});
 m.addControl(new maplibregl.NavigationControl({showCompass:false}));
-const pts=(f)=>({type:'FeatureCollection',features:regs.filter(f).map(r=>({type:'Feature',properties:r,geometry:{type:'Point',coordinates:[r.lon,r.lat]}}))});
-m.on('load',()=>{
-m.addSource('z',{type:'geojson',data:D.zonas});m.addSource('p',{type:'geojson',data:D.predios});m.addSource('i',{type:'geojson',data:D.infra});m.addSource('l',{type:'geojson',data:D.limite});
-m.addSource('a',{type:'geojson',data:pts(r=>r.a)});m.addSource('m',{type:'geojson',data:pts(r=>!r.a&&AM(r.u))});
-m.addLayer({id:'z',type:'fill',source:'z',paint:{'fill-opacity':.28,'fill-color':['match',['get','zona'],'Zona de conservación','#2e8b57','Zona de restauración','#e0a526','Zona de amortiguación','#4aa3c7','#b05fd0']}});
-m.addLayer({id:'i',type:'fill',source:'i',paint:{'fill-color':'#b05fd0','fill-opacity':.7}});
-m.addLayer({id:'l',type:'line',source:'l',paint:{'line-color':'#fff','line-width':2}});
-m.addLayer({id:'pf',type:'fill',source:'p',paint:{'fill-color':['case',['==',['get','estado'],'Adquirido'],'#e0a526','#6b7fd7'],'fill-opacity':['case',['==',['get','id'],['literal',window.sel||'']],.5,.08]}});
-m.addLayer({id:'pl',type:'line',source:'p',paint:{'line-color':['case',['==',['get','estado'],'Adquirido'],'#f2c14e','#9aa8ff'],'line-width':1.6}});
-m.addLayer({id:'m',type:'circle',source:'m',paint:{'circle-radius':5,'circle-color':'#ff9f43','circle-stroke-color':'#fff','circle-stroke-width':1}});
-m.addLayer({id:'a',type:'circle',source:'a',paint:{'circle-radius':7,'circle-color':'#ff3b30','circle-stroke-color':'#fff','circle-stroke-width':2}});
-['a','m'].forEach(l=>m.on('click',l,e=>{const p=e.features[0].properties;new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${p.e}</i></b><br>${p.c&&p.c!=='null'?p.c+'<br>':''}UICN: ${p.u} · ${p.n} registro(s)<br>Predio: ${p.p||'—'}`).addTo(m)}));
-m.on('click','pf',e=>{if(!e.defaultPrevented)selecciona(e.features[0].properties.id)});
-});
-const bounds=f=>{const b=[999,999,-999,-999],r=a=>typeof a[0]==='number'?(b[0]=Math.min(b[0],a[0]),b[1]=Math.min(b[1],a[1]),b[2]=Math.max(b[2],a[0]),b[3]=Math.max(b[3],a[1])):a.forEach(r);r(f.geometry.coordinates);return b};
-D.predios.features.slice().sort((a,b)=>a.properties.nombre.localeCompare(b.properties.nombre)).forEach(f=>$('#selPredio').insertAdjacentHTML('beforeend',`<option value="${f.properties.id}">${f.properties.nombre} · ${f.properties.estado}</option>`));
-function selecciona(id){window.sel=id;$('#selPredio').value=id;if(m.getLayer('pf'))m.setPaintProperty('pf','fill-opacity',['case',['==',['get','id'],id],.55,.08]);
- const f=D.predios.features.find(x=>x.properties.id===id);if(!f){$('#info').textContent='Todos los predios.';m.fitBounds([[-75.137,5.43],[-75.1,5.465]],{padding:30});return}
- const b=bounds(f);m.fitBounds([[b[0],b[1]],[b[2],b[3]]],{padding:50,maxZoom:17});const p=f.properties,rs=regs.filter(r=>r.p===p.nombre),am=rs.filter(r=>AM(r.u)),sp=[...new Set(rs.map(r=>r.e))];
- $('#info').innerHTML=`<b>${p.nombre}</b> · ${p.estado} · ${F(p.area_vertices_ha)} ha (${F(p.pct_en_rab)} % dentro de la RAB)<br>${rs.length?`${rs.reduce((s,r)=>s+r.n,0)} registros de ${sp.length} especies; ${am.reduce((s,r)=>s+r.n,0)} de especies amenazadas; ${rs.filter(r=>r.a).reduce((s,r)=>s+r.n,0)} de Andinobates.`:'Sin registros de herpetofauna en el polígono (puede no haber sido muestreado).'}`}
-$('#selPredio').onchange=e=>selecciona(e.target.value);selecciona('');
-const vis=(l,on)=>m.getLayer(l)&&m.setLayoutProperty(l,'visibility',on?'visible':'none');
-$('#cZ').onchange=e=>vis('z',e.target.checked);$('#cA').onchange=e=>vis('a',e.target.checked);$('#cM').onchange=e=>vis('m',e.target.checked);$('#cE').onchange=e=>vis('i',e.target.checked);
+const VIS=['l','z','pf','pl','sm','sa'],paso={0:[],1:['l'],2:['l','z'],3:['l','pf','pl'],4:['l','sa'],5:['l','sa','sm']};
+const vista={0:{c:[-75.12,5.45],z:8.4},1:{b:[[-75.137,5.43],[-75.1,5.465]]},2:{b:[[-75.137,5.43],[-75.1,5.465]]},3:{b:[[-75.14,5.425],[-75.095,5.47]]},4:{b:[[-75.137,5.43],[-75.1,5.465]]},5:{b:[[-75.137,5.43],[-75.1,5.465]]}};
+const LEY={4:`<img src="${RABICON.dataUri(RABICON.COL.ANDI,'#5a3418',true)}">Andinobates daleswansoni (EN)`,5:`<img src="${RABICON.dataUri(RABICON.COL.ANDI,'#5a3418',true)}">Andinobates (EN)<br><img src="${RABICON.dataUri(RABICON.COL.CR)}">En Peligro Crítico<br><img src="${RABICON.dataUri(RABICON.COL.EN)}">En Peligro<br><img src="${RABICON.dataUri(RABICON.COL.VU)}">Vulnerable`,2:'<s style="background:#2e8b57"></s>Conservación<br><s style="background:#e0a526"></s>Restauración<br><s style="background:#4aa3c7"></s>Amortiguación<br><s style="background:#b05fd0"></s>Uso intensivo',3:'<s style="background:#e0a526"></s>Adquirido<br><s style="background:#6b7fd7"></s>Por adquirir'};
+let listo=false,actual=0;
+function ir(i){actual=i;if(!listo)return;VIS.forEach(l=>m.getLayer(l)&&m.setLayoutProperty(l,'visibility',paso[i].includes(l)?'visible':'none'));const v=vista[i];v.b?m.fitBounds(v.b,{padding:50,duration:1400}):m.flyTo({center:v.c,zoom:v.z,duration:1400});const L=$('#ley');L.style.display=LEY[i]?'block':'none';L.innerHTML=LEY[i]||''}
+m.on('load',async()=>{await RABICON.registrar(m);
+m.addSource('z',{type:'geojson',data:D.zonas});m.addSource('p',{type:'geojson',data:D.predios});m.addSource('l',{type:'geojson',data:D.limite});m.addSource('a',{type:'geojson',data:pts(r=>r.a)});m.addSource('m',{type:'geojson',data:pts(r=>!r.a&&AM(r.u))});
+m.addLayer({id:'z',type:'fill',source:'z',paint:{'fill-opacity':.42,'fill-color':['match',['get','zona'],'Zona de conservación','#2e8b57','Zona de restauración','#e0a526','Zona de amortiguación','#4aa3c7','#b05fd0']}});
+m.addLayer({id:'pf',type:'fill',source:'p',paint:{'fill-color':['case',['==',['get','estado'],'Adquirido'],'#e0a526','#6b7fd7'],'fill-opacity':.28}});
+m.addLayer({id:'pl',type:'line',source:'p',paint:{'line-color':['case',['==',['get','estado'],'Adquirido'],'#f2c14e','#9aa8ff'],'line-width':1.5}});
+m.addLayer({id:'l',type:'line',source:'l',paint:{'line-color':'#fff','line-width':2.4}});
+m.addLayer({id:'sm',type:'symbol',source:'m',layout:{'icon-image':['concat','rana-',['get','u']],'icon-size':.55,'icon-allow-overlap':true}});
+m.addLayer({id:'sa',type:'symbol',source:'a',layout:{'icon-image':'rana-andi','icon-size':.7,'icon-allow-overlap':true}});
+['sa','sm'].forEach(l=>{m.on('click',l,e=>{const p=e.features[0].properties;new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${p.e}</i></b><br>${p.c&&p.c!=='null'?p.c+'<br>':''}UICN: ${p.u} · ${p.n} registro(s)<br>Predio: ${p.p&&p.p!=='null'?p.p:'—'}`).addTo(m)});m.on('mouseenter',l,()=>m.getCanvas().style.cursor='pointer');m.on('mouseleave',l,()=>m.getCanvas().style.cursor='')});
+listo=true;ir(actual)});
+document.querySelectorAll('.st').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ir(+s.dataset.s)}),{rootMargin:'-45% 0px -45% 0px'}).observe(s));
 </script></body></html>
