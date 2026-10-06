@@ -14,7 +14,7 @@ em,i{font-style:italic}
 header.top{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;align-items:center;gap:26px;padding:14px 34px;color:#fff;transition:background .3s,color .3s;font:600 12px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase}
 header.top.s{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--rule)}
 header.top img{height:34px;display:none}header.top.s img{display:block}header.top.s .wm span{display:none}header.top .wm{display:flex;align-items:center;font-weight:700}
-header.top a{text-decoration:none}header.top a:hover{text-decoration:underline;text-underline-offset:5px}header.top .sp{flex:1}
+header.top a{text-decoration:none;white-space:nowrap}header.top a:hover{text-decoration:underline;text-underline-offset:5px}header.top .sp{flex:1}
 @media(max-width:900px){header.top nav{display:none}}
 /* portada */
 .hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end;background:#14221a url("https://fcvcol.org/wp-content/uploads/2026/02/PANORAMICADRONE1_RAB_DIC_2023-scaled.jpg") center/cover}
@@ -64,8 +64,20 @@ td{padding:9px 10px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top
 footer{background:#0c140f;color:#aeb7a8;padding:60px 34px;font:14px/1.7 system-ui,sans-serif}footer .in{max-width:1180px;margin:0 auto}footer a{color:#e8e3d3}
 .ref{font:14px/1.55 system-ui,sans-serif;padding-left:2em;text-indent:-2em;margin:0 0 10px}
 .visor{display:inline-block;margin-top:8px;font:600 13px/1 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:5px}
+
+.leyenda img{width:16px;height:20px}
+.dim{background:#10281a;color:#efe8d4;margin-top:40px;padding-bottom:30px}.dim .cap>.n{border-color:#efe8d4;color:#bfc9b4}.dim .cap>.n b{color:#ffb347}
+.dim .sel button{color:#9fb09a}.dim .sel button.on{color:#fff;border-color:#ffb347}.dim .fuente,.dim p.cita{color:#9fb09a}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:26px 0}
+.dg .t{background:#183a26;border-radius:4px;padding:20px 20px 16px;border-top:5px solid #ffb347}.dg .t b{display:block;font:400 2.8rem/1 Georgia,serif;color:#ffb347}.dg .t span{font:13.5px/1.4 system-ui,sans-serif;color:#cfd8c4;display:block;margin-top:6px}
+.dim .b i{background:#ffb347;height:8px;border-radius:4px}.dim .b{color:#efe8d4}
+.lec{border-left:5px solid #ffb347;padding:4px 0 4px 18px;margin:22px 0;font-size:18px;max-width:64ch}
+.cta{background:var(--red);color:#fff;padding:90px 34px;text-align:center}.cta h2{font-size:clamp(2.2rem,5.5vw,4.4rem);max-width:18ch;margin:0 auto .4em}.cta p{max-width:60ch;margin:0 auto 1em;font-size:1.15rem}
+.cta .op{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1100px;margin:36px auto;text-align:left}.cta .op div{background:rgba(0,0,0,.2);padding:20px;border-radius:4px;font:15px/1.5 system-ui,sans-serif}.cta .op b{display:block;font:400 1.4rem/1.2 Georgia,serif;margin-bottom:8px}
+.cta a.bt{display:inline-block;background:#fff;color:var(--red);padding:16px 30px;font:700 14px/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin:6px}.cta a.bt.o{background:none;color:#fff;border:2px solid #fff}
+.cta .fuente{color:#f3cfc8;margin:14px auto;text-align:center}
 </style></head><body>
-<header class="top" id="top"><a href="#" class="wm"><img src="assets/logo-fcv.png" alt="FCV"><span>FCV · RAB</span></a><nav style="display:flex;gap:26px"><a href="#c1">Reserva</a><a href="#c2">Territorio</a><a href="#c4">Anfibios</a><a href="#c5">Otros grupos</a><a href="#c11">Predios</a><a href="#c12">Visitantes</a></nav><span class="sp"></span><a href="tablero.html">Visor cartográfico →</a></header>
+<header class="top" id="top"><a href="#" class="wm"><img src="assets/logo-fcv.png" alt="FCV"><span>FCV · RAB</span></a><nav style="display:flex;gap:20px"><a href="#c1">Reserva</a><a href="#c2">Territorio</a><a href="#c4">Anfibios</a><a href="#c5">Otros grupos</a><a href="#dim">Dimensiones</a><a href="#c11">Predios</a><a href="#c12">Visitantes</a></nav><span class="sp"></span><a href="papercut.html">Versión paper-cut</a><a href="tablero.html">Visor cartográfico →</a></header>
 
 <section class="hero"><div><div class="k">Reserva Natural de la Sociedad Civil · Pensilvania, Caldas</div><h1>Reserva Andinobates Boquerón</h1><p>Protegiendo anfibios endémicos, bosque andino y corredores biológicos en el corazón de los Andes colombianos.</p></div></section>
 
@@ -137,20 +149,32 @@ footer{background:#0c140f;color:#aeb7a8;padding:60px 34px;font:14px/1.7 system-u
 <figure class="full"><img loading="lazy" src="https://fcvcol.org/wp-content/uploads/2026/05/cacique-candela-Hypopyrrhus-pyrohypogaster.jpg" alt="Cacique candela" style="object-position:center 30%"><figcaption>Cacique candela, <em>Hypopyrrhus pyrohypogaster</em>, ave insignia de Pensilvania. Fotografía: RAB-FCV.</figcaption></figure>
 </section>
 
-<section class="cap" id="c10"><div class="n"><b>06</b>Comunidad</div><div><h2>Educación ambiental con la vereda</h2>
+</article>
+<section class="dim" id="dim"><article><div class="cap"><div class="n"><b>06</b>Dimensiones</div><div>
+<h2>Tres dimensiones, un mismo territorio</h2>
+<p>Las ranas son el centro, pero viven en un paisaje con agua, suelos, caminos, gente e historia. Cada dimensión se resume aquí con los datos de la RAB y lo que significan para su conservación (FCV, 2026).</p>
+<div class="sel" id="dsel"><button data-d="a" class="on">Ambiental</button><button data-d="s">Social</button><button data-d="t">Territorio</button></div>
+<div id="dout"></div></div></div></article></section>
+<section class="cta" id="apoya"><h2>Cada hectárea protegida sostiene una rana más</h2>
+<p>La RAB se ha construido predio a predio con apoyo de aliados como Rainforest Trust y donantes como George y Cathy Ledec (FCV, 2026). Hay pasos concretos que aún necesitan financiación.</p>
+<div class="op"><div><b>Completar el límite</b>Predios proyectados para compra que aún no están dentro de la reserva, y restauración de las zonas con pastos y mosaicos.</div><div><b>Centro de visitantes</b>Estudios completados y diseños finales listos: falta construirlo para el turismo científico y la educación.</div><div><b>Escuchar el bosque</b>Monitoreo acústico pasivo con 40 grabadoras para seguir a las especies amenazadas.</div><div><b>Comunidad vecina</b>Educación ambiental con las veredas, guía de fauna, PRAE y la Galería de la Memoria Ambiental.</div></div>
+<a class="bt" href="mailto:adrianaherrera@fcvorg.com?subject=Quiero%20apoyar%20la%20Reserva%20Andinobates%20Boquer%C3%B3n">Quiero apoyar la RAB</a><a class="bt o" href="https://fcvcol.org/proyectos-y-procesos/reserva-andinobates-boqueron/">Conocer el proyecto</a>
+<p class="fuente">Los montos y modalidades de aporte se acuerdan con la dirección de la RAB; esta página no recibe pagos. Fuente: FCV (2026).</p></section>
+<article>
+<section class="cap" id="c10"><div class="n"><b>08</b>Comunidad</div><div><h2>Educación ambiental con la vereda</h2>
 <p>La FCV acompaña los proyectos ambientales escolares (PRAE) en el área urbana y rural de Pensilvania. Con la comunidad de la vereda Santa Teresa elaboró la «Guía de Fauna: Vereda Santa Teresa, Pensilvania, Caldas» (ISBN 978-628-96418-0-6), un listado ilustrado de aves, anfibios, reptiles y mamíferos construido en talleres, financiado en 2024 por la convocatoria PROCEDA de Corpocaldas, Más Biomas y la Fundación FESCO (FCV, 2026).</p></div></section>
 
-<section class="cap" id="c11"><div class="n"><b>07</b>Predios</div><div><h2>Cada predio, con sus ranas</h2>
+<section class="cap" id="c11"><div class="n"><b>09</b>Predios</div><div><h2>Cada predio, con sus ranas</h2>
 <p>Los predios se muestran como polígonos individuales, con la proporción de cada uno que cae dentro del límite de la RAB y las observaciones de especies que contiene. Las filas con 0 % corresponden a la compra de 2025, aún fuera del límite. «El Laurel – El Silencio» es un englobe que contiene a los dos predios que lleva por nombre, por lo que sus áreas no son sumables.</p>
 <table id="tPred"></table><p class="fuente">Fuente: tablas de vértices de predios, FCV (2024–2025); áreas en MAGNA-SIRGAS Origen Nacional (EPSG:9377); registros de BD Herpetos RAB 2025 (FCV, 2025). Sin propietarios, matrículas ni datos catastrales.</p>
 <a class="visor" href="tablero.html">Ver los predios en el visor cartográfico →</a></div></section>
 
-<section class="cap" id="c12"><div class="n"><b>08</b>Visitantes</div><div><h2>Centro de visitantes y equipamientos</h2>
+<section class="cap" id="c12"><div class="n"><b>10</b>Visitantes</div><div><h2>Centro de visitantes y equipamientos</h2>
 <p>El centro de visitantes ya cuenta con estudios completados y diseños finales. Junto a él avanzan el turismo científico, la Galería de la Memoria Ambiental, el proyecto Rascaderas, un diagnóstico de la vereda Santa Teresa y un monitoreo acústico pasivo con 40 grabadoras (FCV, 2026).</p>
 <p>La cartografía actual registra <b id="eqha"></b> hectáreas de zona de uso intensivo e infraestructura. La ubicación proyectada del nuevo centro aún no está incorporada a las capas: se integrará al visor cuando se entregue su georreferenciación.</p>
 <p class="fuente">Fuente: FCV (2026); zonificación de la RAB (FCV).</p></div></section>
 
-<section class="cap" id="c13"><div class="n"><b>09</b>Contacto</div><div><h2>Habla con el equipo</h2>
+<section class="cap" id="c13"><div class="n"><b>11</b>Contacto</div><div><h2>Habla con el equipo</h2>
 <p><b>Adriana Herrera-Montes, PhD</b>, directora de la RAB.<br>Calle 4 n.º 6-75, apto. 3, Pensilvania, Caldas.<br><a href="mailto:adrianaherrera@fcvorg.com">adrianaherrera@fcvorg.com</a></p>
 <p>Aliados: Rainforest Trust, Parques Nacionales Naturales de Colombia, Gobernación de Caldas, Alcaldía de Pensilvania, Grupo de Observadores de Aves de Pensilvania y Reserva Naranja, Café y Pimienta. Datos abiertos: SiB Colombia, eBird, iNaturalist. #PensilvaniaTerritorioAnfibio</p></div></section>
 
@@ -205,4 +229,28 @@ m.addLayer({id:'sa',type:'symbol',source:'a',layout:{'icon-image':'rana-andi','i
 ['sa','sm'].forEach(l=>{m.on('click',l,e=>{const p=e.features[0].properties;new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`<b><i>${p.e}</i></b><br>${p.c&&p.c!=='null'?p.c+'<br>':''}UICN: ${p.u} · ${p.n} registro(s)<br>Predio: ${p.p&&p.p!=='null'?p.p:'—'}`).addTo(m)});m.on('mouseenter',l,()=>m.getCanvas().style.cursor='pointer');m.on('mouseleave',l,()=>m.getCanvas().style.cursor='')});
 listo=true;ir(actual)});
 document.querySelectorAll('.st').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ir(+s.dataset.s)}),{rootMargin:'-45% 0px -45% 0px'}).observe(s));
+</script><script src="ana-datos.js"></script><script>
+(function(){const R=RABANA._RAB,P=D.predios.features.map(f=>f.properties);const bar=(a,t,u)=>a.map(x=>`<div class="b"><span>${x[0]}</span><i style="width:${Math.max(100*x[1]/t,1.5)}%"></i><em>${F(x[1])}${u||' ha'}</em></div>`).join('');
+const sum=a=>a.reduce((s,x)=>s+x[1],0),tile=a=>'<div class="dg">'+a.map(x=>`<div class="t"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')+'</div>';
+const nat=R.cobertura.filter(x=>/Bosque denso|secundaria|Arbustal/.test(x[0])).reduce((s,x)=>s+x[1],0),tc=sum(R.cobertura),B=R.bio;
+const ad=P.filter(p=>p.estado==='Adquirido').length,pr=P.length-ad;
+const V={
+a:()=>tile([['bmh-MB','Bosque muy húmedo montano bajo, 2000–2500 m, 12–18 °C'],[F(R.cobertura.length)+' clases','de cobertura de la tierra en el SIG'],[R.microcuenca.length,'microcuencas que nacen o cruzan la reserva'],[R.deslizamientos,'deslizamientos georreferenciados']])+
+`<p class="lec">Cobertura. Según la capa regional, ${F(nat)} ha (${Math.round(100*nat/tc)} %) son cobertura natural densa o en transición; ${F(R.cobertura.find(x=>/fragmentado/.test(x[0]))[1])} ha son bosque fragmentado con pastos y cultivos. Es una cartografía más gruesa que la de campo, donde FCV estima cerca de 70 % de bosque avanzado (FCV, 2026).</p>`+bar(R.cobertura,tc)+
+`<p class="fuente">Fuente: capa de cobertura de la cuenca del río Tenerife (Corpocaldas) recortada a la RAB; cálculo propio en EPSG:9377.</p>
+<p class="lec">Agua. La reserva reparte ${F(R.ha)} ha entre cuatro microcuencas; la quebrada Santa Rosa aporta la mayor parte. Todas drenan al río Tenerife y a la cuenca del río La Miel (FCV, 2026).</p>`+bar(R.microcuenca,sum(R.microcuenca))+
+`<p class="fuente">Fuente: microcuencas FCV; ${F(R.hidro_km)} km de red hídrica dentro del límite.</p>
+<p class="lec">Biodiversidad. Los registros georreferenciados del monitoreo suman ${B.aves.reg+B.herpetos.reg+B.mamiferos.reg+B.mariposas.reg} observaciones: ${B.aves.esp} especies de aves, ${B.herpetos.esp} de anfibios y reptiles, ${B.mamiferos.esp} de mamíferos y ${B.mariposas.esp} de mariposas y polillas (FCV, 2025; las cifras oficiales de FCV, 2026, incluyen más especies porque agregan otras fuentes).</p>
+<p class="lec">Presiones. Hay ${R.deslizamientos} deslizamientos, ${R.ingresos} puntos de ingreso no autorizado, ${R.minas} de minería y ${R.extraccion} de extracción. Son las zonas que piden vigilancia y restauración primero.</p><p class="fuente">Fuente: capas de riesgos del visor FCV.</p>`,
+s:()=>tile([['3','veredas vecinas: Arenillal, Santa Teresa y La Cristalina'],['2.625','árboles plaqueteados en los transectos'],['40','grabadoras en el monitoreo acústico pasivo'],['ISBN','Guía de Fauna de la vereda Santa Teresa, 2024']])+
+`<p class="lec">La conservación aquí no se hace sin la gente. FCV acompaña los PRAE en Pensilvania y elaboró con la vereda Santa Teresa una guía ilustrada de fauna, financiada por la convocatoria PROCEDA de Corpocaldas (FCV, 2026).</p>
+<p class="lec">Proyectos en marcha: turismo científico, Galería de la Memoria Ambiental, proyecto Rascaderas y diagnóstico de la vereda Santa Teresa. Los aliados incluyen a Rainforest Trust, Parques Nacionales Naturales, Gobernación de Caldas, Alcaldía de Pensilvania y el Grupo de Observadores de Aves de Pensilvania (FCV, 2026).</p>
+<p class="fuente">Fuente: FCV (2026). Los indicadores de participación (talleres, asistentes, empleos locales) no están en las fuentes revisadas; se incorporarán cuando el equipo los entregue.</p>`,
+t:()=>tile([[F(R.ha)+' ha','límite de la reserva'],[P.length,'predios individuales ('+ad+' adquiridos, '+pr+' proyectados)'],[R.vias_km+' km','de vías y caminos dentro del límite'],[F(R.zona.find(x=>/intensivo/.test(x[0]))[1])+' ha','de uso intensivo e infraestructura']])+
+`<p class="lec">Zonificación. El manejo asigna casi toda la reserva a conservación, y reserva zonas pequeñas para restaurar, amortiguar y construir (FCV, 2026).</p>`+bar(R.zona,sum(R.zona))+
+`<p class="fuente">Fuente: ordenamiento predial de la RAB (FCV); cálculo propio.</p>
+<p class="lec">Vocación del suelo. ${R.uso.map(x=>x[0]+' ('+F(x[1])+' ha)').join(' y ')}; es decir, la base legal-técnica de un territorio con vocación de conservación.</p>`+bar(R.uso,sum(R.uso))+
+`<p class="fuente">Fuente: capa de uso del suelo de la RAB del visor FCV. Sin propietarios ni datos catastrales.</p>
+<p class="lec">Para ver cualquier análisis predio por predio use el <a href="tablero.html" style="color:#ffb347">visor cartográfico</a>.</p>`};
+const o=document.getElementById('dout'),sel=document.getElementById('dsel');const pon=k=>{o.innerHTML=V[k]();sel.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.d===k))};sel.onclick=e=>{if(e.target.dataset.d)pon(e.target.dataset.d)};pon('a')})();
 </script></body></html>
