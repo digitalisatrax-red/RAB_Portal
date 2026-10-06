@@ -1,6 +1,6 @@
 /* Service worker de visorRAB: cascarón + capas visitadas disponibles sin señal. */
-const VERSION = 'rab-v10';
-const CASCARON = ['./', 'index.html', 'manifest.webmanifest', 'css/rab-tema.css', 'css/rab-tablero-v6.css', 'css/rab-impresion.css',
+const VERSION = 'rab-v11';
+const CASCARON = ['./', 'index.html', 'tablero.html', 'portal-datos.js', 'manifest.webmanifest', 'css/rab-tema.css', 'css/rab-tablero-v6.css', 'css/rab-impresion.css',
   'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'assets/logo-fcv.png', 'assets/icon-192.png',
   'js/rab-util.js', 'js/rab-estado.js', 'js/rab-catalogo.js', 'js/rab-mapa-v7.js', 'js/rab-herramientas.js', 'js/rab-kpis.js',
   'js/rab-graficos.js', 'js/rab-tablas.js', 'js/rab-buscador.js', 'js/rab-ficha.js', 'js/rab-app.js',
